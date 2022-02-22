@@ -1,6 +1,10 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
 const path = require("path");
+const webpack = require("webpack");
+
+const dotenv = require("dotenv");
+dotenv.config({ path: path.join(__dirname, "../.env") });
 
 module.exports = {
   entry: "./src/index",
@@ -28,6 +32,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      "process.env": JSON.stringify(process.env),
+    }),
     new ModuleFederationPlugin({
       name: "todoInput",
       filename: "remoteEntry.js",

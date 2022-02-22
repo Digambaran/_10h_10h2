@@ -5,12 +5,13 @@ export const Input = ({ refetch }) => {
   const handleAdd = async () => {
     setSubmitting(true);
     try {
-      console.log("todo", todo);
-      const res = await fetch("http://localhost:3003/addTodos", {
+      const addTodoBaseUrl = process.env.BLOX_ENV_URL_addTodo;
+
+      const res = await fetch(`${addTodoBaseUrl}/addTodos`, {
         method: "post",
-        body: JSON.stringify({ data: todo }),
-        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: todo }),
       });
+
       const resp = await res.json();
       console.log(resp);
       setSubmitting(false);
