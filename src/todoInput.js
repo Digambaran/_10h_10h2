@@ -7,7 +7,7 @@ export const Input = ({ refetch }) => {
     try {
       const addTodoBaseUrl = process.env.BLOX_ENV_URL_addTodo;
 
-      const res = await fetch(`${addTodoBaseUrl}/addTodos`, {
+      const res = await fetch(`${addTodoBaseUrl}/addTodo`, {
         method: "post",
         body: JSON.stringify({ name: todo }),
       });
