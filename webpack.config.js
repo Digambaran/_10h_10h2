@@ -1,10 +1,14 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { ModuleFederationPlugin } = require("webpack").container;
-const path = require("path");
-const webpack = require("webpack");
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import path from "path";
+import webpack from "webpack";
 
-const dotenv = require("dotenv");
-dotenv.config({ path: path.join(__dirname, "../.env") });
+const ModuleFederationPlugin = webpack.container.ModuleFederationPlugin;
+
+// For testing take pull from Appblox/node-blox-sdk and npm install from path
+import { env } from "node-blox-sdk";
+env.init();
+
+const __dirname = path.resolve();
 
 module.exports = {
   entry: "./src/index",
@@ -28,6 +32,16 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.m?js/,
+        type: "javascript/auto",
+      },
+      {
+        test: /\.m?js/,
+        resolve: {
+          fullySpecified: false,
+        },
       },
     ],
   },
