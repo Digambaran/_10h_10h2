@@ -10,7 +10,7 @@ env.init();
 
 const __dirname = path.resolve();
 
-module.exports = {
+export default {
   entry: "./src/index",
   mode: "development",
   devServer: {
