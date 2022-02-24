@@ -1,13 +1,12 @@
 import React from "react";
+import env from "env";
 export const Input = ({ refetch }) => {
   const [todo, setTodo] = React.useState("");
   const [submitting, setSubmitting] = React.useState(false);
   const handleAdd = async () => {
     setSubmitting(true);
     try {
-      const addTodoBaseUrl = process.env.BLOX_ENV_URL_addTodo;
-
-      const res = await fetch(`${addTodoBaseUrl}/addTodo`, {
+      const res = await fetch(`${env.BLOX_FUNCTION_URL}/addTodo`, {
         method: "post",
         body: JSON.stringify({ name: todo }),
       });

@@ -17,6 +17,9 @@ export default {
     static: path.join(__dirname, "dist"),
     port: 4008,
   },
+  externals:{
+    "env": JSON.stringify(process.env),
+  },
   output: {
     publicPath: "auto",
   },
