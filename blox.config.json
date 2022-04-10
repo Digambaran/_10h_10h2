@@ -1,8 +1,1 @@
-{
-  "type": "ui",
-  "source": "git@github.com:Appblox/_ab_todo_todoInput.git",
-  "language": "js",
-  "start": "npx webpack-dev-server",
-  "build": "npm run build",
-  "postPull": "npm i"
-}
+{"type":"ui","source":{"https":"https://github.com/Digambaran/_10h_10h2","ssh":"git@github.com:Digambaran/_10h_10h2.git"},"language":"js","start":"npx webpack-dev-server","build":"npm run build","postPull":"npm i","name":"10h2"}
